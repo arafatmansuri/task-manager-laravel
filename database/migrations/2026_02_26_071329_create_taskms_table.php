@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('priority',15);
             $table->text('description')->nullable();
             $table->string('status',10);
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('userms')->onDelete('cascade');
             $table->boolean('isactive')->default(true);
             $table->timestamps();
         });
